@@ -25,6 +25,19 @@ find_package(ATSPI 2.5.3)
 include(GStreamerDefinitions)
 include(FindGLibCompileResources)
 
+# Copied from OptionsWin
+add_definitions(-D_WINDOWS -DNTDDI_VERSION=0x0A000006 -D_WIN32_WINNT=0x0A00)
+
+add_definitions(-DNOMINMAX)
+add_definitions(-DUNICODE -D_UNICODE)
+add_definitions(-DNOCRYPT)
+
+add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE)
+add_definitions(-D_WINSOCKAPI_=)
+
+set(ENABLE_WEBKIT ON)
+set(ENABLE_WEBKIT_LEGACY OFF)
+
 SET_AND_EXPOSE_TO_BUILD(USE_GCRYPT TRUE)
 SET_AND_EXPOSE_TO_BUILD(USE_LIBEPOXY TRUE)
 SET_AND_EXPOSE_TO_BUILD(USE_THEME_ADWAITA TRUE)
@@ -52,7 +65,7 @@ WEBKIT_OPTION_DEFINE(USE_LIBHYPHEN "Whether to enable the default automatic hyph
 WEBKIT_OPTION_DEFINE(USE_LIBSECRET "Whether to enable the persistent credential storage using libsecret." PUBLIC ON)
 WEBKIT_OPTION_DEFINE(USE_SKIA_OPENTYPE_SVG "Whether to use the Skia built-in support for OpenType SVG fonts." PUBLIC ON)
 WEBKIT_OPTION_DEFINE(USE_SOUP2 "Whether to enable usage of Soup 2 instead of Soup 3." PUBLIC OFF)
-WEBKIT_OPTION_DEFINE(USE_SYSTEM_SYSPROF_CAPTURE "Whether to use a system-provided libsysprof-capture" PUBLIC ON)
+WEBKIT_OPTION_DEFINE(USE_SYSTEM_SYSPROF_CAPTURE "Whether to use a system-provided libsysprof-capture" PUBLIC OFF)
 WEBKIT_OPTION_DEFINE(ENABLE_JSC_RESTRICTED_OPTIONS_BY_DEFAULT "Whether to enable dangerous development options in JSC by default." PRIVATE OFF)
 
 WEBKIT_OPTION_DEPEND(ENABLE_DOCUMENTATION ENABLE_INTROSPECTION)
@@ -64,7 +77,7 @@ WEBKIT_OPTION_CONFLICT(USE_GTK4 USE_SOUP2)
 # Private options specific to the GTK port. Changing these options is
 # completely unsupported. They are intended for use only by WebKit developers.
 WEBKIT_OPTION_DEFINE(USE_SPIEL "Whether to enable usage of LibSpiel for speech synthesis." PRIVATE OFF)
-WEBKIT_OPTION_DEFINE(USE_SYSPROF_CAPTURE "Whether to use libsysprof-capture for tracing." PRIVATE ON)
+WEBKIT_OPTION_DEFINE(USE_SYSPROF_CAPTURE "Whether to use libsysprof-capture for tracing." PRIVATE OFF)
 WEBKIT_OPTION_DEFINE(USE_SYSTEM_UNIFDEF "Whether to use a system-provided unifdef" PRIVATE ON)
 
 WEBKIT_OPTION_DEPEND(USE_SYSTEM_SYSPROF_CAPTURE USE_SYSPROF_CAPTURE)

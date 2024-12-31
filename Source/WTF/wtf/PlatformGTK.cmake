@@ -15,16 +15,20 @@ list(APPEND WTF_SOURCES
     glib/SocketConnection.cpp
     glib/URLGLib.cpp
 
-    posix/CPUTimePOSIX.cpp
-    posix/FileSystemPOSIX.cpp
-    posix/OSAllocatorPOSIX.cpp
-    posix/ThreadingPOSIX.cpp
+    win/CPUTimeWin.cpp
+    win/FileSystemWin.cpp
+    win/OSAllocatorWin.cpp
+    win/ThreadingWin.cpp
+    win/SignalsWin.cpp
 
-    text/unix/TextBreakIteratorInternalICUUnix.cpp
+    text/win/StringWin.cpp
+    text/win/TextBreakIteratorInternalICUWin.cpp
 
-    unix/LanguageUnix.cpp
-    unix/LoggingUnix.cpp
-    unix/UniStdExtrasUnix.cpp
+    win/LanguageWin.cpp
+    win/LoggingWin.cpp
+
+    win/DbgHelperWin.cpp
+    win/Win32Handle.cpp
 )
 
 list(APPEND WTF_PUBLIC_HEADERS
@@ -44,11 +48,19 @@ list(APPEND WTF_PUBLIC_HEADERS
     glib/SysprofAnnotator.h
     glib/WTFGType.h
 
-    linux/CurrentProcessMemoryStatus.h
-    linux/ProcessMemoryFootprint.h
-    linux/RealTimeThreads.h
+    text/win/WCharStringExtras.h
 
-    unix/UnixFileDescriptor.h
+    win/DbgHelperWin.h
+    win/GDIObject.h
+    win/PathWalker.h
+    win/SoftLinking.h
+    win/Win32Handle.h
+
+    # linux/CurrentProcessMemoryStatus.h
+    # linux/ProcessMemoryFootprint.h
+    # linux/RealTimeThreads.h
+
+    # unix/UnixFileDescriptor.h
 )
 
 if (CMAKE_SYSTEM_NAME MATCHES "Linux")
@@ -64,6 +76,17 @@ elseif (CMAKE_SYSTEM_NAME MATCHES "FreeBSD")
         generic/MemoryFootprintGeneric.cpp
 
         unix/MemoryPressureHandlerUnix.cpp
+    )
+elseif (CMAKE_SYSTEM_NAME MATCHES "Windows")
+    list(APPEND WTF_SOURCES
+        win/MemoryFootprintWin.cpp
+        win/MemoryPressureHandlerWin.cpp
+    )
+
+    list(APPEND WTF_LIBRARIES
+        DbgHelp
+        shlwapi
+        winmm
     )
 else ()
     list(APPEND WTF_SOURCES

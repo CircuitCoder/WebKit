@@ -130,9 +130,7 @@ void Thread::initializeCurrentThreadInternal(const char* szThreadName)
     info.dwThreadID = GetCurrentThreadId();
     info.dwFlags = 0;
 
-    __try {
-        RaiseException(MS_VC_EXCEPTION, 0, sizeof(info) / sizeof(ULONG_PTR), reinterpret_cast<ULONG_PTR*>(&info));
-    } __except(EXCEPTION_CONTINUE_EXECUTION) { }
+    RaiseException(MS_VC_EXCEPTION, 0, sizeof(info) / sizeof(ULONG_PTR), reinterpret_cast<ULONG_PTR*>(&info));
 
     initializeCurrentThreadEvenIfNonWTFCreated();
 }

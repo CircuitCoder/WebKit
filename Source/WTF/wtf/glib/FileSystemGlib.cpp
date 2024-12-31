@@ -108,6 +108,15 @@ CString currentExecutableName()
     return g_get_prgname();
 }
 
+/* Copied from POSIX */
+String stringFromFileSystemRepresentation(const char* path)
+{
+    if (!path)
+        return String();
+
+    return String::fromUTF8(path);
+}
+
 String userCacheDirectory()
 {
     return stringFromFileSystemRepresentation(g_get_user_cache_dir());

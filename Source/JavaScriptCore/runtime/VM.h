@@ -297,7 +297,7 @@ public:
     enum class VMType { Default, APIContextGroup };
 
     struct ClientData {
-        JS_EXPORT_PRIVATE virtual ~ClientData() { };
+        virtual ~ClientData() { };
 
         JS_EXPORT_PRIVATE virtual String overrideSourceURL(const StackFrame&, const String& originalSourceURL) const = 0;
     };

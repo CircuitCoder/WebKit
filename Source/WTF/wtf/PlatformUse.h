@@ -86,7 +86,7 @@
 #define USE_CF 1
 #endif
 
-#if PLATFORM(COCOA) || (PLATFORM(GTK) || PLATFORM(WPE))
+#if PLATFORM(COCOA) || (PLATFORM(GTK) || PLATFORM(WPE)) && !OS(WINDOWS)
 #define USE_FILE_LOCK 1
 #endif
 

@@ -80,7 +80,7 @@ class IsoSubspace {
     WTF_MAKE_FAST_ALLOCATED;
 public:
     JS_EXPORT_PRIVATE IsoSubspace(JSC::IsoSubspace&);
-    JS_EXPORT_PRIVATE ~IsoSubspace() = default;
+    ~IsoSubspace() = default;
 
     size_t cellSize() { return m_localAllocator.cellSize(); }
 
