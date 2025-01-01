@@ -374,7 +374,7 @@ using JSInstruction = BaseInstruction<JSOpcodeTraits>;
 JS_EXPORT_PRIVATE bool isFromJSCode(void* returnAddress);
 
 #if USE(BUILTIN_FRAME_ADDRESS)
-#if OS(WINDOWS)
+#if OS(WINDOWS) && !defined(__MINGW32__)
 // On Windows, __builtin_frame_address(1) doesn't work, it returns __builtin_frame_address(0)
 // We can't use __builtin_frame_address(0) either, as on Windows it points at the space after
 // function's local variables on the stack instead of before like other platforms.

@@ -374,7 +374,7 @@ asm (
     "popq %rcx" "\n"
     "popq %rbp" "\n"
     "ret" "\n"
-#if !COMPILER(MSVC)
+#if !OS(WINDOWS)
     ".previous" "\n"
 #endif
 );
@@ -574,7 +574,7 @@ asm (
     "popq %rcx" "\n"
     "popq %rbp" "\n"
     "ret" "\n"
-#if !COMPILER(MSVC)
+#if !OS(WINDOWS)
     ".previous" "\n"
 #endif
 );

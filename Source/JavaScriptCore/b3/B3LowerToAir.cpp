@@ -79,6 +79,17 @@
 #include <wtf/IndexSet.h>
 #include <wtf/StdLibExtras.h>
 
+#include "AirOpcode.h"
+#include "AirOpcodeUtils.h"
+
+#undef RotateLeft32
+#undef RotateLeft64
+#undef RotateRight32
+#undef RotateRight64
+#undef StoreFence
+#undef LoadFence
+#undef MemoryFence
+
 #if !ASSERT_ENABLED
 IGNORE_RETURN_TYPE_WARNINGS_BEGIN
 #endif

@@ -751,6 +751,14 @@ writeH("OpcodeUtils") {
     outp.puts "#include \"AirCustom.h\""
     outp.puts "#include \"AirInst.h\""
     outp.puts "#include \"AirFormTable.h\""
+
+    outp.puts "#undef RotateLeft32"
+    outp.puts "#undef RotateLeft64"
+    outp.puts "#undef RotateRight32"
+    outp.puts "#undef RotateRight64"
+    outp.puts "#undef StoreFence"
+    outp.puts "#undef LoadFence"
+    outp.puts "#undef MemoryFence"
     outp.puts "namespace JSC { namespace B3 { namespace Air {"
     
     outp.puts "inline bool opgenHiddenTruth() { return true; }"
@@ -923,6 +931,15 @@ writeH("OpcodeGenerated") {
     outp.puts "#include \"B3ProcedureInlines.h\""
     outp.puts "#include \"CCallHelpers.h\""
     outp.puts "#include \"wtf/PrintStream.h\""
+
+    outp.puts "#undef RotateLeft32"
+    outp.puts "#undef RotateLeft64"
+    outp.puts "#undef RotateRight32"
+    outp.puts "#undef RotateRight64"
+    outp.puts "#undef StoreFence"
+    outp.puts "#undef LoadFence"
+    outp.puts "#undef MemoryFence"
+
     outp.puts "namespace WTF {"
     outp.puts "using namespace JSC::B3::Air;"
     outp.puts "void printInternal(PrintStream& out, Opcode opcode)"
