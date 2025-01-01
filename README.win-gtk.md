@@ -11,3 +11,8 @@ Inside a build directory, run the following cmake command:
 Some dependencies may still be missing, but should all be found in mingw64 repository.
 
 Then just `make`
+
+## Potential problems
+
+- Frame pointer address might not be correctly retrieved. JIT may not work.
+- xdgmime is disabled.
