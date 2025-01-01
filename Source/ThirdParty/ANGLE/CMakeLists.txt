@@ -237,7 +237,7 @@ if (ENABLE_WEBGL)
         DEPENDS LibGLESv2EntryPointsHeaders ANGLEWebGLHeaders
         COMMAND ${CMAKE_COMMAND} -E env
             BUILT_PRODUCTS_DIR=${ANGLE_FRAMEWORK_HEADERS_DIR}
-            PUBLIC_HEADERS_FOLDER_PATH=/ANGLE
+            PUBLIC_HEADERS_FOLDER_PATH=./ANGLE
             ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/adjust-angle-include-paths.py
         VERBATIM
     )

@@ -24,10 +24,10 @@ import re
 
 if os.getenv('DEPLOYMENT_LOCATION') == 'YES':
     # Apple-internal build
-    output_dir = os.getenv('DSTROOT') + os.getenv('PUBLIC_HEADERS_FOLDER_PATH')
+    output_dir = os.path.join(os.getenv('DSTROOT') + os.getenv('PUBLIC_HEADERS_FOLDER_PATH'))
 else:
     # External build
-    output_dir = os.getenv('BUILT_PRODUCTS_DIR') + os.getenv('PUBLIC_HEADERS_FOLDER_PATH')
+    output_dir = os.path.join(os.getenv('BUILT_PRODUCTS_DIR') + os.getenv('PUBLIC_HEADERS_FOLDER_PATH'))
 
 
 def replace(line):
