@@ -2,6 +2,9 @@
 
 Install msys2, install mingw64 **clang and lld**. Also cmake and other build & runtime dependencies from `qtwebkit`.
 
+Additionally, the following dependencies needs to be installed:
+- Install msys2 perl, and package `perl-File-Copy-Recursive`. I had no luck with `cpan install File::Copy::Recursive`.
+
 Inside a build directory, run the following cmake command:
 
 ```
