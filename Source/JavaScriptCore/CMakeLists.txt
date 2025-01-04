@@ -438,7 +438,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
     set(OFFLINE_ASM_ARGS --binary-format=ELF)
 endif ()
 
-if (MSVC AND NOT ENABLE_C_LOOP)
+if (CMAKE_SYSTEM_NAME MATCHES "Windows" AND NOT ENABLE_C_LOOP)
     set(OFFLINE_ASM_ARGS --platform=Windows)
 endif ()
 

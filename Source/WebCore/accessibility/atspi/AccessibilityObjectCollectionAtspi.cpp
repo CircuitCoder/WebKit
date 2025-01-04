@@ -24,6 +24,8 @@
 #include "AccessibilityAtspi.h"
 #include "AccessibilityAtspiEnums.h"
 
+#undef interface
+
 namespace WebCore {
 
 GDBusInterfaceVTable AccessibilityObjectAtspi::s_collectionFunctions = {

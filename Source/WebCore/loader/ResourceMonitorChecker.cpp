@@ -29,6 +29,7 @@
 #include <wtf/CryptographicallyRandomNumber.h>
 #include <wtf/Seconds.h>
 #include <wtf/StdLibExtras.h>
+#include <wtf/CrossThreadCopier.h>
 
 #if ENABLE(CONTENT_EXTENSIONS)
 

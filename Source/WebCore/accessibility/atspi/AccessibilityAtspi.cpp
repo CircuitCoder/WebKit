@@ -34,6 +34,9 @@
 #include <wtf/UUID.h>
 #include <wtf/glib/RunLoopSourcePriority.h>
 
+// Some wierd stuff introduced by rpc.h
+#undef interface
+
 namespace WebCore {
 DEFINE_ALLOCATOR_WITH_HEAP_IDENTIFIER(AccessibilityAtspi);
 

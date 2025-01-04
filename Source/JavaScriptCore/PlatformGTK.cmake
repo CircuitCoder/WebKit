@@ -1,6 +1,23 @@
 include(GLib.cmake)
-include(inspector/remote/GLib.cmake)
+# include(inspector/remote/GLib.cmake)
 set(JavaScriptCore_OUTPUT_NAME javascriptcoregtk-${WEBKITGTK_API_VERSION})
+
+list(APPEND JavaScriptCore_SOURCES
+    API/JSStringRefBSTR.cpp
+)
+
+list(APPEND JavaScriptCore_PUBLIC_FRAMEWORK_HEADERS
+    API/JSStringRefBSTR.h
+    API/JavaScriptCore.h
+)
+
+if (ENABLE_REMOTE_INSPECTOR)
+    include(inspector/remote/Socket.cmake)
+else ()
+    list(REMOVE_ITEM JavaScriptCore_SOURCES
+        inspector/JSGlobalObjectInspectorController.cpp
+    )
+endif ()
 
 configure_file(javascriptcoregtk.pc.in ${JavaScriptCore_PKGCONFIG_FILE} @ONLY)
 

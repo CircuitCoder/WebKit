@@ -13,7 +13,7 @@ set(linguas
 # GETTEXT_CREATE_TRANSLATIONS automatically runs msgmerge, which is something we
 # didn't do in the old autotools build. This overwrites all the po files in the
 # Source directory. Perhaps we want this, but for now disable it to maintain compatibility.
-set(GETTEXT_MSGMERGE_EXECUTABLE :)
+set(GETTEXT_MSGMERGE_EXECUTABLE true)
 
 set(domain WebKitGTK-${WEBKITGTK_API_VERSION})
 set(build_directory ${CMAKE_BINARY_DIR}/Source/WebCore/platform/gtk/po)

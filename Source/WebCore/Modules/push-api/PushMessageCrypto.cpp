@@ -31,6 +31,7 @@
 #include <wtf/ByteOrder.h>
 #include <wtf/CryptographicallyRandomNumber.h>
 #include <wtf/StdLibExtras.h>
+#include <wtf/text/ASCIILiteral.h>
 
 WTF_ALLOW_UNSAFE_BUFFER_USAGE_BEGIN
 

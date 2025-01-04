@@ -30,6 +30,7 @@
 #include "HTMLIFrameElement.h"
 #include "LocalFrame.h"
 #include "ResourceMonitorChecker.h"
+#include "Page.h"
 #include <wtf/CryptographicallyRandomNumber.h>
 #include <wtf/StdLibExtras.h>
 

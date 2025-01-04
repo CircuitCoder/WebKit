@@ -120,12 +120,16 @@ struct ValueProfileBase {
         for (unsigned i = 0; i < totalNumberOfBuckets; ++i) {
             JSValue value = JSValue::decode(m_buckets[i]);
             if (!!value) {
+                // Potential libintl
+                #pragma push_macro("printf")
+                #undef printf
                 if (first) {
                     out.printf(": ");
                     first = false;
                 } else
                     out.printf(", ");
                 out.print(value);
+                #pragma pop_macro("printf")
             }
         }
     }

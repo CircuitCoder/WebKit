@@ -37,6 +37,25 @@
 #include <glib/gi18n-lib.h>
 #endif
 
+// Undef everything that libintl just def-ed
+// FIXME(GTK-WIN): This may not work if we really need these.
+#undef fprintf
+#undef vfprintf
+#undef printf
+#undef vprintf
+#undef sprintf
+#undef vsprintf
+#undef snprintf
+#undef vsnprintf
+#undef asprintf
+#undef vasprintf
+#undef fwprintf
+#undef vfwprintf
+#undef wprintf
+#undef vwprintf
+#undef swprintf
+#undef vswprintf
+
 namespace WebCore {
 
     class IntSize;

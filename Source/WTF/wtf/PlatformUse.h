@@ -174,7 +174,7 @@
 #define USE_METAL 1
 #endif
 
-#if PLATFORM(GTK) || PLATFORM(WPE)
+#if (PLATFORM(GTK) || PLATFORM(WPE)) && !OS(WINDOWS)
 #define USE_UNIX_DOMAIN_SOCKETS 1
 #endif
 

@@ -27,6 +27,7 @@
 
 #if ENABLE(CONTENT_EXTENSIONS)
 
+#include "loader/ResourceLoadInfo.h"
 #include <wtf/CheckedArithmetic.h>
 #include <wtf/RefCountedAndCanMakeWeakPtr.h>
 

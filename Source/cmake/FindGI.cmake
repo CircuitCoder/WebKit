@@ -346,6 +346,7 @@ function(GI_INTROSPECT namespace nsversion header)
             "--output=${gir_path}"
             "--library=$<TARGET_FILE_BASE_NAME:${opt_TARGET}>"
             "--library-path=$<TARGET_FILE_DIR:${opt_TARGET}>"
+            "--library-path=$<TARGET_LINKER_FILE_DIR:${opt_TARGET}>"
             "--namespace=${namespace}"
             "--nsversion=${nsversion}"
             "--c-include=${header}"

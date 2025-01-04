@@ -566,6 +566,8 @@ sub IDLFileForInterface
         $idlFiles = { };
         while (<$fh>) {
             chomp $_;
+            $_ =~ s/\n//g;
+            $_ =~ s/\r//g;
             my $name = fileparse($_, ".idl");
             $idlFiles->{$name} = $_;
         }
